@@ -1,0 +1,12 @@
+<!-- 
+<form action="/create_pc_item/" method="post">
+  {% csrf_token %}
+  <label for="pc_item_name_field">PC Item Name: </label>
+  <input id="pc_item_name_field" type="text" name="pc_item_name_field" value="{{ pc_item_name }}">
+  <input type="submit" value="Create">
+</form> -->
+<form action="/pc_item_form_view/" method="post">
+  {% csrf_token %}
+  {{ form }}
+  <input type="submit" value="Submit">
+</form>

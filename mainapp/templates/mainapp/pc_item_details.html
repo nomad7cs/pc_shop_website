@@ -1,0 +1,9 @@
+{% if pc %}
+    <ul>
+    {% for part in pc.computerparts_set.all %}
+        <li><a href="/parts/{{ part.id }}/">{{ part.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>This PC has no parts yet.</p>
+{% endif %}

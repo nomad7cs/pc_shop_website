@@ -1,0 +1,9 @@
+{% if latest_question_list %}
+    <ul>
+    {% for computer in latest_computer_list %}
+        <li><a href="/computers/{{ computer.id }}/">{{ computer.computer_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No computers are available.</p>
+{% endif %}
