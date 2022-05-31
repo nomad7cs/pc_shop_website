@@ -1,5 +1,7 @@
 from django import forms
 from mainapp.models import ComputerPart
+from django.forms import ModelForm
+
 
 class PcItemForm(ModelForm):
     # pc_item_name = forms.CharField(max_length=100)

@@ -18,7 +18,7 @@ def index(request):
 
 # Parametric request
 def pc_details(request, computer_id):
-    try
+    try:
         pc = Computer.objects.get(pk=computer_id)
         template = loader.get_template('mainapp/pc_details.html')
         context = {'pc': pc,}
@@ -27,7 +27,7 @@ def pc_details(request, computer_id):
     return HttpResponse(template.render(context, request))
 
 def pc_item_details(request, pc_item_id):
-    try
+    try:
         pc_item = ComputerPart.objects.get(pk=pc_item_id)
         template = loader.get_template('mainapp/pc_item_details.html')
         context = {'pc_item': pc_item,}
@@ -42,8 +42,8 @@ def pc_item_form_view(request, instance_id):
         if instance_id:
             instance_obj = ComputerPart.objects.get(pk=instance_id)
             form = PcItemForm(request.POST, instance= instance_obj)
-            else:
-                form = PcItemForm(request.POST)
+        else:
+            form = PcItemForm(request.POST)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect('/')

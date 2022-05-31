@@ -3,11 +3,11 @@ from django.db import models
 
 class Computer(models.Model):
   title = models.CharField(max_length=200)
-  price = models.FLoatField()
+  price = models.FloatField()
   manufacturer_name = models.CharField(max_length=200)
   model_name = models.CharField(max_length=200)
   registration_date = models.DateTimeField('Date registered')
-  parts = models.ManyToManyField(ComputerPart)
+  parts = models.ManyToManyField('ComputerPart')
 
   def __str__(self):
     return self.title
@@ -16,7 +16,7 @@ class Computer(models.Model):
 class ComputerPart(models.Model):
   name = models.CharField(max_length=200)
   description = models.CharField(max_length=200)
-  price = models.FLoatField()
+  price = models.FloatField()
   manufacturer = models.ForeignKey('Manufacturer', on_delete=models.CASCADE,)
   model_name = models.CharField(max_length=200)
 
